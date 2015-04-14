@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+var path = require( 'path' )
+var argv = require( 'minimist' )( process.argv.slice( 2 ) )
+var Conformance = require( '../dist' )
+
+if ( !argv.e ) {
+    console.error( 'Use -e to supply entry point' )
+    process.exit( 1 )
+}
+
+var entry = argv.e
+
+var conformance = new Conformance({
+    paths: [
+        './node_modules',
+        path.dirname( argv.e )
+    ],
+    entry: argv.e
+})
+
+conformance.debugTree()
