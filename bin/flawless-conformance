@@ -1,22 +1,38 @@
 #!/usr/bin/env node
 
+var fs = require( 'fs' )
 var path = require( 'path' )
 var argv = require( 'minimist' )( process.argv.slice( 2 ) )
 var Conformance = require( '../dist' )
 
-if ( !argv.e ) {
-    console.error( 'Use -e to supply entry point' )
-    process.exit( 1 )
+// Conformance options
+var entry = argv.e || 'input'
+var paths = [
+    './node_modules'
+]
+if ( argv.e ) {
+    paths.push( path.dirname( argv.e ) )
 }
 
-var entry = argv.e
-
 var conformance = new Conformance({
-    paths: [
-        './node_modules',
-        path.dirname( argv.e )
-    ],
-    entry: argv.e
+    paths: paths,
+    entry: entry
 })
 
-conformance.debugTree()
+
+// Stream handlers
+var input = ''
+function onData( chunk ) {
+    if ( chunk !== null ) {
+        input += chunk
+    }
+}
+function onEnd() {
+    conformance.debugTree( input )
+}
+
+
+// Get the data
+var stream = argv.e ? fs.createReadStream( argv.e ) : process.stdin
+stream.on( 'data', onData )
+stream.on( 'end', onEnd )
