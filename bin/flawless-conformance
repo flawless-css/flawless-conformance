@@ -5,6 +5,7 @@ var path = require( 'path' )
 var argv = require( 'minimist' )( process.argv.slice( 2 ) )
 var Conformance = require( '../dist' )
 
+
 // Conformance options
 var entry = argv.e || 'input'
 var paths = [
@@ -12,6 +13,11 @@ var paths = [
 ]
 if ( argv.e ) {
     paths.push( path.dirname( argv.e ) )
+}
+if ( argv.p ) {
+    argv.p.split( ',' ).forEach( function( importPath ) {
+        paths.push( importPath )
+    })
 }
 
 var conformance = new Conformance({
