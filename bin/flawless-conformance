@@ -22,7 +22,8 @@ if ( argv.p ) {
 
 var conformance = new Conformance({
     paths: paths,
-    entry: entry
+    entry: entry,
+    output: argv[ 'debug-output' ]
 })
 
 
