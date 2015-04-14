@@ -12,7 +12,10 @@
 - [ ] never use ID styling
 - [ ] enforce color units (e.g. only rgba allowed, or only from a specific variable definition file)
 - [ ] multiple rules should live on new lines
-
+- [ ] use _is_ i.e. `.Component--is-disabled` instead of `.Component-disabled`
+- [ ] _is_ classes always scoped to a parent i.e. no bare `.is-transitioning` classes lying around, use `.Component.is-transitioning` instead
+- [ ] static analysis output
+- [ ] perf testing, load testing etc (probably out of scope for conformance)
 
 ## Code duping
 
