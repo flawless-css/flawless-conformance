@@ -34,7 +34,7 @@ function onData( chunk ) {
     }
 }
 function onEnd() {
-    conformance.debugTree( input )
+    conformance.parse( input )
 }
 
 
