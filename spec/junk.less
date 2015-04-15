@@ -1,12 +1,10 @@
-@--global-width: 60px;
-
-a {
-    color: black;
-    width: @--global-width + 100 / 2;
-    height: 100hv;
+.m-makeGutter( @gutter: 20px ) {
+    padding-left: @gutter;
+    padding-right: @gutter;
 }
 
-div,
-section {
-    width: @--global-width;
+div {
+    .m-makeGutter( 40px );
+
+    color: blue;
 }
