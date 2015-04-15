@@ -1,14 +1,12 @@
-@global_var: #000;
+@--global-width: 60px;
 
 a {
-    @a_variable: #f03;
     color: black;
+    width: @--global-width + 100 / 2;
+    height: 100hv;
+}
 
-    .span {
-        color: @a_variable;
-    }
-
-    .inner {
-        width: 20px;
-    }
+div,
+section {
+    width: @--global-width;
 }
