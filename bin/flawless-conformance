@@ -5,6 +5,13 @@ var path = require( 'path' )
 var argv = require( 'minimist' )( process.argv.slice( 2 ) )
 var Conformance = require( '../dist' )
 
+/**
+ * @param -e less entry point
+ * @param -p less import paths
+ * @param --debug-output punts out parsed output
+ * @param -s suppresses streaming of input data
+ */
+
 
 // Conformance options
 var entry = argv.e || 'input'
@@ -23,7 +30,8 @@ if ( argv.p ) {
 var conformance = new Conformance({
     paths: paths,
     entry: entry,
-    output: argv[ 'debug-output' ]
+    output: argv[ 'debug-output' ],
+    streaming: !argv.s
 })
 
 

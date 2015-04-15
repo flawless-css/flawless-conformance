@@ -1,15 +1,12 @@
-@import './importer';
 
-@bloodred: #fa4433;
+@red: #ff1118;
 
-.my-mixin() {
-    color: blue;
-}
+button {
+    font-size: 12px;
+    color: white;
+    background: @red;
 
-a {
-    @bitblue: #000088;
-
-    cursor: pointer;
-    color: @bloodred;
-    background: @bitblue;
+    .span {
+        font-size: 25px;
+    }
 }
