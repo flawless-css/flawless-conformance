@@ -1,5 +1,5 @@
 {
-  "name": "flawless-conformance",
+  "name": "ho-conformance",
   "version": "0.0.0",
   "description": "Conformance testing for less",
   "main": "dist/index.js",
@@ -11,11 +11,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/flawless/flawless-conformance.git"
+    "url": "git://github.com/hocss/ho-conformance.git"
   },
   "keywords": [
     "less",
-    "flawless",
+    "ho",
     "conformance",
     "preprocessor",
     "css",
@@ -24,9 +24,9 @@
   "author": "Matt Styles",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/flawless/flawless-conformance/issues"
+    "url": "https://github.com/hocss/ho-conformance/issues"
   },
-  "homepage": "https://github.com/flawless/flawless-conformance",
+  "homepage": "https://github.com/hocss/ho-conformance",
   "dependencies": {
     "chalk": "^1.0.0",
     "core-js": "^0.8.3",
