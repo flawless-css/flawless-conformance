@@ -1,4 +1,6 @@
-@global: 'I am a global variable';
+
+@import './imports';
+@import './moduleA';
 
 a {
     @a_variable: #f03;
@@ -11,6 +13,10 @@ a {
         .inner {
             @innerVar: #88a;
             width: 200px;
+        }
+
+        .task {
+
         }
     }
 }
