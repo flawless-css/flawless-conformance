@@ -5,6 +5,8 @@ var path = require( 'path' )
 var argv = require( 'minimist' )( process.argv.slice( 2 ) )
 var Conformance = require( '../dist' )
 
+var DebugTask = require( '../dist/tasks/debug' )
+
 /**
  * @param -e less entry point
  * @param -p less import paths
@@ -41,6 +43,7 @@ var conformance = new Conformance({
     streaming: !argv.s
 })
 
+conformance.register( new DebugTask() )
 
 // Stream through conformance
 var stream = argv.e ? fs.createReadStream( argv.e ) : process.stdin
