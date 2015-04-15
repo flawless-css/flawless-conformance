@@ -1,3 +1,16 @@
+@global: 'I am a global variable';
+
 a {
+    @a_variable: #f03;
     color: black;
+
+    .wrapper {
+        @wrapperVar: #fff;
+        font-size: 24px;
+
+        .inner {
+            @innerVar: #88a;
+            width: 200px;
+        }
+    }
 }
