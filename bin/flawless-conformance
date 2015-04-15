@@ -10,6 +10,13 @@ var Conformance = require( '../dist' )
  * @param -p less import paths
  * @param --debug-output punts out parsed output
  * @param -s suppresses streaming of input data
+ *
+ * e.g.
+ * `./bin/flawless-conformance -e ./spec/junk.less --debug-output`
+ * streams input straight to stdout and also outputs parsed result
+ *
+ * `./bin/flawless-conformance -s -e ./spec/junk.less`
+ * more useful for general running
  */
 
 
