@@ -31,6 +31,7 @@
     "chalk": "^1.0.0",
     "core-js": "^0.8.3",
     "ho-conformance-events": "^0.1.0",
+    "ho-conformance-debug": "^0.1.0",
     "less": "^2.5.0",
     "minimist": "^1.1.1"
   },
