@@ -1,22 +1,14 @@
-
-@import './imports';
-@import './moduleA';
+@global_var: #000;
 
 a {
     @a_variable: #f03;
     color: black;
 
-    .wrapper {
-        @wrapperVar: #fff;
-        font-size: 24px;
+    .span {
+        color: @a_variable;
+    }
 
-        .inner {
-            @innerVar: #88a;
-            width: 200px;
-        }
-
-        .task {
-
-        }
+    .inner {
+        width: 20px;
     }
 }
