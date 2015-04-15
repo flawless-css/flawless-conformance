@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/mattstyles/flawless-conformance.git"
+    "url": "git://github.com/flawless/flawless-conformance.git"
   },
   "keywords": [
     "less",
@@ -24,9 +24,9 @@
   "author": "Matt Styles",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mattstyles/flawless-conformance/issues"
+    "url": "https://github.com/flawless/flawless-conformance/issues"
   },
-  "homepage": "https://github.com/mattstyles/flawless-conformance",
+  "homepage": "https://github.com/flawless/flawless-conformance",
   "dependencies": {
     "chalk": "^1.0.0",
     "core-js": "^0.8.3",
