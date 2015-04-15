@@ -27,19 +27,6 @@ var conformance = new Conformance({
 })
 
 
-// Stream handlers
-var input = ''
-function onData( chunk ) {
-    if ( chunk !== null ) {
-        input += chunk
-    }
-}
-function onEnd() {
-    conformance.parse( input )
-}
-
-
-// Get the data
+// Stream through conformance
 var stream = argv.e ? fs.createReadStream( argv.e ) : process.stdin
-stream.on( 'data', onData )
-stream.on( 'end', onEnd )
+stream.pipe( conformance ).pipe( process.stdout )
