@@ -1,0 +1,18 @@
+@size: 10px;
+@big: 20px;
+
+div {
+    height: 7px + 10px - ( @size / @big );
+}
+
+.with-variable {
+    height: @size + 50px;
+}
+
+section {
+    height: 10px + 20px;
+}
+
+article {
+    height: 12px + 24px - 6px;
+}

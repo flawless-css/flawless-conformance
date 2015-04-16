@@ -1,4 +1,4 @@
-.m-makeGutter( @gutter: 20px ) {
+.m-withParams( @gutter: 20px ) {
     padding-left: @gutter;
     padding-right: @gutter;
 }
@@ -7,8 +7,11 @@
     border-radius: 6px;
 }
 
+@--gutterVariable: 12px;
+
 div {
-    .m-makeGutter( 40px );
+    .m-withParams( 40px );
+    .m-withParams( @--gutterVariable );
     .m-noParams();
 
     color: blue;
