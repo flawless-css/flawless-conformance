@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "babel": "^5.1.8",
-    "bootstrap": "^3.3.4"
+    "bootstrap": "^3.3.4",
+    "tape": "^4.0.0"
   }
 }
