@@ -1,8 +1,72 @@
 
-@lg-view: ~"only screen and ( max-width: 1023px )";
 
-@media @lg-view {
-    height: 40px;
-    line-height: 39px;
-    font-size: 28px;
+.bullShitButton {
+    width: @bullshitButtonWidth;
+    height: @bullshitButtonWidth;
+    color: #FFFFFF;
+    //background: url(../assets/button-pulse-dark.png) no-repeat 0 0; no animation for now
+    background: url(../assets/bull-shit-button.png) no-repeat 0 0;
+    background-size: 180px 360px;
+    border: none;
+    outline: 0;
+    padding: 0;
+
+    // double the size on on tablets
+    @media (min-width: @screen-sm) {
+        width: @bullshitButtoniPadWidth;
+        height: @bullshitButtoniPadHeight;
+        background: url(../assets/TabletButtonRetina.png) no-repeat 0 0;
+        background-size: 244px 488px;
+    }
+
+
+    &.pulse {
+        -webkit-animation: pulse 1500ms steps(10) infinite;
+        -moz-animation: pulse 1500ms steps(10) infinite;
+        -o-animation: pulse 1500ms steps(10) infinite;
+        animation: pulse 1500ms steps(10) infinite;
+    }
+
+    &.center {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translateY(-50%) translateX(-50%);
+        -moz-transform: translateY(-50%) translateX(-50%);
+        -o-transform: translateY(-50%) translateX(-50%);
+        transform: translateY(-50%) translateX(-50%);
+    }
+
+    &:active {
+        -webkit-animation-play-state: paused;
+        -moz-animation-play-state: paused;
+        -o-animation-play-state: paused;
+        animation-play-state: paused;
+
+        -webkit-animation: none;
+        -moz-animation: none;
+        -o-animation: none;
+        animation: none;
+
+        background-position: 0 -180px;
+
+        @media (min-width: @screen-sm) {
+            background-position: 0 -244px;
+        }
+    }
+}
+
+@-webkit-keyframes pulse { .pulse-frames; }
+@-moz-keyframes pulse { .pulse-frames; }
+@-ms-keyframes pulse { .pulse-frames; }
+@-o-keyframes pulse { .pulse-frames; }
+@keyframes pulse { .pulse-frames; }
+
+.pulse-frames () {
+    from {
+        background-position: 0 0;
+    }
+    to {
+        background-position: -3000px 0;
+    }
 }

@@ -44,6 +44,10 @@ var conformance = new Conformance({
     streaming: !argv.s
 })
 
+conformance.on( 'error', function( err ) {
+    console.error( err )
+})
+
 conformance.register( new DebugTask() )
 
 // Stream through conformance
