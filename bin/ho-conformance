@@ -4,6 +4,7 @@ var fs = require( 'fs' )
 var path = require( 'path' )
 var argv = require( 'minimist' )( process.argv.slice( 2 ) )
 var Conformance = require( '../dist' )
+var TaskBase = require( 'ho-conformance-base' )
 
 var DebugTask = require( 'ho-conformance-debug' )
 var IDTask = require( 'ho-conformance-id' )
@@ -12,6 +13,7 @@ var IDTask = require( 'ho-conformance-id' )
 /**
  * @param -e less entry point
  * @param -p less import paths
+ * @param -t specify conformance tasks
  * @param --compile punts out parsed output
  * @param -s suppresses streaming of input data
  *
@@ -22,6 +24,8 @@ var IDTask = require( 'ho-conformance-id' )
  * `./bin/ho-conformance -s -e ./spec/junk.less`
  * suppresses stdout, more useful for general running as it allows console logging
  */
+
+console.log( argv )
 
 
 // Conformance options
@@ -50,8 +54,19 @@ conformance.on( 'error', function( err ) {
     console.error( err )
 })
 
-// conformance.register( new DebugTask() )
-// conformance.register( new IDTask() )
+// Require, instantiate and register tasks
+if ( argv.t ) {
+    var tasks = [].concat( argv.t )
+    tasks.forEach( function( task ) {
+        try {
+            var TaskConstructor = require( task )
+            conformance.register( new TaskConstructor() )
+        } catch( err ) {
+            console.error( 'Ho can not load conformance task ' + task + '. Is it installed?' )
+        }
+    })
+}
+
 
 // Stream through conformance
 var stream = argv.e ? fs.createReadStream( argv.e ) : process.stdin
