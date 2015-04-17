@@ -6,20 +6,21 @@ var argv = require( 'minimist' )( process.argv.slice( 2 ) )
 var Conformance = require( '../dist' )
 
 var DebugTask = require( 'ho-conformance-debug' )
+var IDTask = require( 'ho-conformance-id' )
 
 
 /**
  * @param -e less entry point
  * @param -p less import paths
- * @param --debug-output punts out parsed output
+ * @param --compile punts out parsed output
  * @param -s suppresses streaming of input data
  *
  * e.g.
- * `./bin/flawless-conformance -e ./spec/junk.less --debug-output`
- * streams input straight to stdout and also outputs parsed result
+ * `./bin/ho-conformance --compile < ./spec/junk.less
+ * punts out compiled output when ready
  *
- * `./bin/flawless-conformance -s -e ./spec/junk.less`
- * more useful for general running
+ * `./bin/ho-conformance -s -e ./spec/junk.less`
+ * suppresses stdout, more useful for general running as it allows console logging
  */
 
 
@@ -37,18 +38,20 @@ if ( argv.p ) {
     })
 }
 
+
 var conformance = new Conformance({
     paths: paths,
     entry: entry,
-    output: argv[ 'debug-output' ],
-    streaming: !argv.s
+    streaming: !argv.s,
+    compiling: argv.compile
 })
 
 conformance.on( 'error', function( err ) {
     console.error( err )
 })
 
-conformance.register( new DebugTask() )
+// conformance.register( new DebugTask() )
+// conformance.register( new IDTask() )
 
 // Stream through conformance
 var stream = argv.e ? fs.createReadStream( argv.e ) : process.stdin
