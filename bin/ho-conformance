@@ -6,9 +6,6 @@ var argv = require( 'minimist' )( process.argv.slice( 2 ) )
 var Conformance = require( '../dist' )
 var TaskBase = require( 'ho-conformance-base' )
 
-var DebugTask = require( 'ho-conformance-debug' )
-var IDTask = require( 'ho-conformance-id' )
-
 
 /**
  * @param -e less entry point
@@ -24,8 +21,6 @@ var IDTask = require( 'ho-conformance-id' )
  * `./bin/ho-conformance -s -e ./spec/junk.less`
  * suppresses stdout, more useful for general running as it allows console logging
  */
-
-console.log( argv )
 
 
 // Conformance options
