@@ -47,6 +47,7 @@ var conformance = new Conformance({
 
 conformance.on( 'error', function( err ) {
     console.error( err )
+    console.error( err.stack )
 })
 
 // Require, instantiate and register tasks

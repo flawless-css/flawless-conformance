@@ -12,10 +12,42 @@
 
     .u-two-one {
         color: blue;
+
+        .u-two-one-one {
+            color: black;
+            width: 90%;
+            height: 10hv;
+        }
+
+        .u-two-one-two {
+            display:block;
+
+            &:hover {
+                display: none;
+                width: 0;
+            }
+
+            color: green;
+            background: blue;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Helvetica', 'Lucida Grande', sans-serif;
+        }
+
+        span {
+            display:inline;
+        }
     }
 
     .u-two-two {
+        @gutter: 20px;
         color: black;
+        width: 300px;
+        padding-left: @gutter;
+        padding-right: @gutter;
     }
 }
 
