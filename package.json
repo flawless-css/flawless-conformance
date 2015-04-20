@@ -1,6 +1,6 @@
 {
   "name": "ho-conformance",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Conformance testing for less",
   "main": "dist/index.js",
   "scripts": {
