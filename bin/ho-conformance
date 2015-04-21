@@ -22,7 +22,6 @@ var TaskBase = require( 'ho-conformance-base' )
  * suppresses stdout, more useful for general running as it allows console logging
  */
 
-
 // Conformance options
 var entry = argv.e || 'input'
 var paths = [
